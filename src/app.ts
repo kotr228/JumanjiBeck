@@ -7,6 +7,7 @@ import favoritesRoutes from './routes/favorites';
 import favoritesRoutesdrinks from './routes/favoritesdrinks';
 import popularRoutes from './routes/popular';
 import popularRoutesdrinks from './routes/populardrinks';
+import feedbackRoutes from './routes/feedback';
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/api/favorites', favoritesRoutes);
 app.use('/api/favoritesdrinks', favoritesRoutesdrinks);
 app.use('/api/popular', popularRoutes);
 app.use('/api/popular2', popularRoutesdrinks);
+app.use('/api/feedback', feedbackRoutes);
 
 app.listen(3000, () => {
   console.log('🚀✅Server is running on port 3000');
