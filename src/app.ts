@@ -4,12 +4,15 @@ import bodyParser from 'body-parser';
 import authRoutes from './routes/auth';       
 import userRoutes from './routes/userRoutes';  
 import favoritesRoutes from './routes/favorites';
+import favoritesRoutesdrinks from './routes/favoritesdrinks';
+import popularRoutes from './routes/popular';
+import popularRoutesdrinks from './routes/populardrinks';
 
 const app = express();
 
 
 app.use(cors({
-  origin: 'http://localhost:5173', // адаптуй якщо у тебе інша адреса
+  origin: 'http://localhost:5173', 
   credentials: true
 }));
 
@@ -18,7 +21,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // (опціонально, 
 
 app.use('/api/users', userRoutes); 
 app.use('/api/auth', authRoutes);
-app.use('/api/favorites', favoritesRoutes); 
+app.use('/api/favorites', favoritesRoutes);
+app.use('/api/favoritesdrinks', favoritesRoutesdrinks);
+app.use('/api/popular', popularRoutes);
+app.use('/api/popular2', popularRoutesdrinks);
 
 app.listen(3000, () => {
   console.log('🚀✅Server is running on port 3000');
