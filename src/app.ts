@@ -8,6 +8,9 @@ import favoritesRoutesdrinks from './routes/favoritesdrinks';
 import popularRoutes from './routes/popular';
 import popularRoutesdrinks from './routes/populardrinks';
 import feedbackRoutes from './routes/feedback';
+import addMenuFoodRoutes from './routes/AddFood';
+import addMenuDrinksRoutes from './routes/AddDrinks';
+import uploadImageRoutes from './routes/uploadImage';
 
 const app = express();
 
@@ -18,7 +21,7 @@ app.use(cors({
 }));
 
 app.use(express.json());  // для обробки JSON-запитів
-app.use(bodyParser.urlencoded({ extended: true })); // (опціонально, якщо приймаєш form-data)
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/users', userRoutes); 
 app.use('/api/auth', authRoutes);
@@ -27,6 +30,9 @@ app.use('/api/favoritesdrinks', favoritesRoutesdrinks);
 app.use('/api/popular', popularRoutes);
 app.use('/api/popular2', popularRoutesdrinks);
 app.use('/api/feedback', feedbackRoutes);
+app.use('/api/add', addMenuFoodRoutes);
+app.use('/api/adddrinks', addMenuDrinksRoutes);
+app.use('/api/img', uploadImageRoutes);
 
 app.listen(3000, () => {
   console.log('🚀✅Server is running on port 3000');
