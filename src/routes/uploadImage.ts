@@ -32,7 +32,7 @@ router.post('/upload', upload.single('image'), (req, res) => {
   // Повертаємо шлях до файлу (відносно public)
   res.json({
     filename: req.file.filename,
-    path: `img/${req.file.filename}`,
+    path: `http://localhost:3000/img/${req.file.filename}`,
   });
 });
 

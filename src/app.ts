@@ -11,6 +11,8 @@ import feedbackRoutes from './routes/feedback';
 import addMenuFoodRoutes from './routes/AddFood';
 import addMenuDrinksRoutes from './routes/AddDrinks';
 import uploadImageRoutes from './routes/uploadImage';
+import addCategoregyFood from './routes/addCategoregyFood';
+import path from 'path';
 
 const app = express();
 
@@ -33,6 +35,10 @@ app.use('/api/feedback', feedbackRoutes);
 app.use('/api/add', addMenuFoodRoutes);
 app.use('/api/adddrinks', addMenuDrinksRoutes);
 app.use('/api/img', uploadImageRoutes);
+app.use('/api/menu', addCategoregyFood);
+
+
+app.use('/img', express.static(path.join(__dirname, '../src/public/img')));
 
 app.listen(3000, () => {
   console.log('🚀✅Server is running on port 3000');
