@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const dbSetContoller_1 = require("../controllers/dbSetContoller");
+const router = (0, express_1.Router)();
+router.get('/getMenuKategory', dbSetContoller_1.getMenuKategory);
+router.get('/getMenuFood', dbSetContoller_1.getMenuFood);
+router.get('/getBarMenuKategory', dbSetContoller_1.getBarMenuKategory);
+router.get('/getBarMenuFood', dbSetContoller_1.getBarMenuFood);
+exports.default = router;
