@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mysql2_1 = __importDefault(require("mysql2"));
 const pool = mysql2_1.default.createPool({
-    host: 'rocket-da2.hostsila.org',
+    host: 'localhost',
     user: 'nkloqzcz_kote',
     password: 'Sillver-228',
     database: 'nkloqzcz_Jumanji',

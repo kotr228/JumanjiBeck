@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import path from 'path';
+
 import authRoutes from './routes/auth';       
 import userRoutes from './routes/userRoutes';  
 import favoritesRoutes from './routes/favorites';
@@ -14,19 +16,15 @@ import uploadImageRoutes from './routes/uploadImage';
 import addCategoregyFood from './routes/addCategoregyFood';
 import GetFeedback from './routes/GetFeedback';
 import PhtoRoutes from './routes/photosRouter';
-import path from 'path';
 
 const app = express();
 
-
-app.use(cors({
-  origin: '*'
-}));
-
-
-app.use(express.json());  // для обробки JSON-запитів
+// ✅ Middleware
+app.use(cors({ origin: '*' }));
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// ✅ API Routes
 app.use('/api/users', userRoutes); 
 app.use('/api/auth', authRoutes);
 app.use('/api/favorites', favoritesRoutes);
@@ -41,10 +39,10 @@ app.use('/api/menu', addCategoregyFood);
 app.use('/api/feedback', GetFeedback);
 app.use('/api/photos', PhtoRoutes);
 
+app.use('/img', express.static(path.join(__dirname, '../public/img')));
+app.use('/galery', express.static(path.join(__dirname, '../public/galery')));
 
-app.use('/img', express.static(path.join(__dirname, '../src/public/img')));
-app.use('/galery', express.static(path.join(__dirname, '../src/public/galery')));
-
-app.listen(3000, () => {
-  console.log('🚀✅Server is running on port 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀✅ Server is running on port ${PORT}`);
 });
