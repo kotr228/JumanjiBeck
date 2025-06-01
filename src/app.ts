@@ -16,6 +16,10 @@ import uploadImageRoutes from './routes/uploadImage';
 import addCategoregyFood from './routes/addCategoregyFood';
 import GetFeedback from './routes/GetFeedback';
 import PhtoRoutes from './routes/photosRouter';
+import UpdateMenu from './routes/updatemenu';
+import DeleteMenu from './routes/deletemenu';
+import UpdateDrink from './routes/updateDrink';
+import DeleteDrink from './routes/deleteDrink';
 
 const app = express();
 
@@ -38,6 +42,10 @@ app.use('/api/img', uploadImageRoutes);
 app.use('/api/menu', addCategoregyFood);
 app.use('/api/feedback', GetFeedback);
 app.use('/api/photos', PhtoRoutes);
+app.use('/api/update', UpdateMenu);
+app.use('/api/delete', DeleteMenu);
+app.use('/api/updateDrink', UpdateDrink);
+app.use('/api/deleteDrink', DeleteDrink);
 
 app.use('/img', express.static(path.join(__dirname, '../public/img')));
 app.use('/galery', express.static(path.join(__dirname, '../public/galery')));

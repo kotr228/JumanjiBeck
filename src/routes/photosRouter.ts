@@ -7,7 +7,7 @@ import pool from '../config/db';
 const router = Router();
 
 // Шлях до папки для зберігання фото
-const uploadDir = path.join(__dirname, '..', 'public', 'galery');
+const uploadDir = path.join(__dirname, '../', '../', '../' , 'public', 'galery');
 
 // Створити директорію, якщо вона не існує
 if (!fs.existsSync(uploadDir)) {

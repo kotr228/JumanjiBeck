@@ -19,7 +19,7 @@ const fs_1 = __importDefault(require("fs"));
 const db_1 = __importDefault(require("../config/db"));
 const router = (0, express_1.Router)();
 // Шлях до папки для зберігання фото
-const uploadDir = path_1.default.join(__dirname, '..', 'public', 'galery');
+const uploadDir = path_1.default.join(__dirname, '../', '../', '../', 'public', 'galery');
 // Створити директорію, якщо вона не існує
 if (!fs_1.default.existsSync(uploadDir)) {
     fs_1.default.mkdirSync(uploadDir, { recursive: true });
