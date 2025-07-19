@@ -20,6 +20,8 @@ import UpdateMenu from './routes/updatemenu';
 import DeleteMenu from './routes/deletemenu';
 import UpdateDrink from './routes/updateDrink';
 import DeleteDrink from './routes/deleteDrink';
+import operatorRoutes from './routes/operatorRoutes';
+import orderRoutes from './routes/orderRoutes';
 
 const app = express();
 
@@ -46,6 +48,8 @@ app.use('/api/update', UpdateMenu);
 app.use('/api/delete', DeleteMenu);
 app.use('/api/updateDrink', UpdateDrink);
 app.use('/api/deleteDrink', DeleteDrink);
+app.use('/api/operator', operatorRoutes);
+app.use('/api/order', orderRoutes);
 
 app.use('/img', express.static(path.join(__dirname, '../public/img')));
 app.use('/galery', express.static(path.join(__dirname, '../public/galery')));
