@@ -22,6 +22,9 @@ import UpdateDrink from './routes/updateDrink';
 import DeleteDrink from './routes/deleteDrink';
 import operatorRoutes from './routes/operatorRoutes';
 import orderRoutes from './routes/orderRoutes';
+import tablesRouter from './routes/tablesRouter';
+import reservationRouter from './routes/reservationsRouter';
+import profileRoutes from './routes/profileRoutes';
 
 const app = express();
 
@@ -50,6 +53,9 @@ app.use('/api/updateDrink', UpdateDrink);
 app.use('/api/deleteDrink', DeleteDrink);
 app.use('/api/operator', operatorRoutes);
 app.use('/api/order', orderRoutes);
+app.use('/api/tables', tablesRouter);
+app.use('/api/reservations', reservationRouter);
+app.use('/api/profile', profileRoutes);
 
 app.use('/img', express.static(path.join(__dirname, '../public/img')));
 app.use('/galery', express.static(path.join(__dirname, '../public/galery')));

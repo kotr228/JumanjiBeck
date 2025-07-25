@@ -26,6 +26,8 @@ const updateDrink_1 = __importDefault(require("./routes/updateDrink"));
 const deleteDrink_1 = __importDefault(require("./routes/deleteDrink"));
 const operatorRoutes_1 = __importDefault(require("./routes/operatorRoutes"));
 const orderRoutes_1 = __importDefault(require("./routes/orderRoutes"));
+const tablesRouter_1 = __importDefault(require("./routes/tablesRouter"));
+const reservationsRouter_1 = __importDefault(require("./routes/reservationsRouter"));
 const app = (0, express_1.default)();
 // ✅ Middleware
 app.use((0, cors_1.default)({ origin: '*' }));
@@ -51,6 +53,8 @@ app.use('/api/updateDrink', updateDrink_1.default);
 app.use('/api/deleteDrink', deleteDrink_1.default);
 app.use('/api/operator', operatorRoutes_1.default);
 app.use('/api/order', orderRoutes_1.default);
+app.use('/api/tables', tablesRouter_1.default);
+app.use('/api/reservations', reservationsRouter_1.default);
 app.use('/img', express_1.default.static(path_1.default.join(__dirname, '../public/img')));
 app.use('/galery', express_1.default.static(path_1.default.join(__dirname, '../public/galery')));
 const PORT = process.env.PORT || 3000;
