@@ -1,7 +1,7 @@
 import mysql from 'mysql2';
 
 const pool = mysql.createPool({
-  host: 'rocket-da2.hostsila.org',
+  host: 'localhost',
   user: 'nkloqzcz_kote',
   password: 'Sillver-228',
   database: 'nkloqzcz_Jumanji',
