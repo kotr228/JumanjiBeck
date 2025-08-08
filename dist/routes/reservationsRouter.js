@@ -63,16 +63,24 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 /**
  * Отримати всі бронювання
  */
+// GET /api/reservations
 router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const [rows] = yield db2_1.default.execute(`
       SELECT 
-        id, table_id, customer_name AS name, phone, guests,
-        DATE_FORMAT(reservation_time, '%Y-%m-%d') AS date,
-        DATE_FORMAT(reservation_time, '%H:%i') AS time,
-        notes, duration_minutes
-      FROM reservations
-      ORDER BY reservation_time
+        r.id,
+        r.customer_name AS name,
+        r.phone,
+        r.guests,
+        DATE_FORMAT(r.reservation_time, '%Y-%m-%d') AS date,
+        DATE_FORMAT(r.reservation_time, '%H:%i') AS time,
+        r.notes,
+        r.duration_minutes,
+        r.table_id,
+        t.table_number
+      FROM reservations r
+      JOIN tables t ON r.table_id = t.id
+      ORDER BY r.reservation_time
     `);
         res.json(rows);
     }

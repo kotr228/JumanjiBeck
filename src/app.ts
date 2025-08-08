@@ -27,6 +27,7 @@ import reservationRouter from './routes/reservationsRouter';
 import profileRoutes from './routes/profileRoutes';
 import menuRouter from './routes/menuRoutes';
 
+
 const app = express();
 
 // ✅ Middleware
@@ -58,6 +59,7 @@ app.use('/api/tables', tablesRouter);
 app.use('/api/reservations', reservationRouter);
 app.use('/api/profile', profileRoutes);
 app.use('/api/menu2', menuRouter);
+
 
 app.use('/img', express.static(path.join(__dirname, '../public/img')));
 app.use('/galery', express.static(path.join(__dirname, '../public/galery')));
